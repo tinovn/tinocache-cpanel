@@ -1,0 +1,21 @@
+#!/bin/bash
+for i in `cat /etc/domainusers | cut -d ":" -f1`
+do
+    if [ -e "/home/${i}/.tino/.etc/memcached_enable" ]
+    then
+        /sbin/cagefs_enter_user $i /usr/bin/memcached -d -B ascii -m 64 -s /home/${i}/.tino/memcached.sock
+        echo "User $i enabled memcached"
+    else
+       echo "User $i not enable memcached"
+    fi
+
+    if [ -e "/home/${i}/.tino/.etc/redis_enable" ]
+    then
+        /sbin/cagefs_enter_user $i /usr/bin/cre_redis
+        echo "User $i enabled redis"
+    else
+       echo "User $i not enable redis"
+    fi
+
+
+done

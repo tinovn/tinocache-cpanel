@@ -1,0 +1,60 @@
+.content-margin {
+    margin-top: 20px;
+}
+
+.no-mp {
+    margin: 0px;
+    padding: 0px;
+}
+
+.no-background {
+    background-color:white;
+}
+
+.no-border {
+    border: none;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.padding-33 {
+    /*padding-left: 33px;*/
+}
+
+.btn-w-130px {
+    width: 130px;
+}
+
+.popover {
+    width: 350px !important;
+}
+
+.loader-small {
+    background: rgba(0, 0, 0, 0) url(../Assets/Icons/loader.gif) no-repeat scroll 0 0;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-left: 4px;
+}
+
+.loader-small-centered {
+    background: rgba(0, 0, 0, 0) url(../Assets/Icons/loader.gif) no-repeat 0 0;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    margin-left: 4px;
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.loader-centered {
+    height: 32px;
+    width: 32px;
+}
+
+.input-group-addon, .input-group-btn {
+    white-space: normal !important;
+}

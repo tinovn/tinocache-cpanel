@@ -1,0 +1,11 @@
+<div class="container-fluid" style="padding-top: 20px;">
+    <div id="tinobar"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<div id="images"></div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $( "#tinobar" ).load( "https://api.tino.org/cpanel_notify.json", function() {console.log('ok');});
+  });
+</script>

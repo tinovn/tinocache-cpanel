@@ -1,0 +1,42 @@
+[
+    {"name":"TinoHost Plugins","id":"tinohost","type":"group","order":"1"},
+    {
+        "icon": "tinocachePlugin.png",
+        "group_id": "tinohost",
+        "order": 3,
+        "name": "TinoCache Plugins",
+        "type": "link",
+        "id": "tinocachePlugin",
+        "uri": "tinocachePlugin/index.live.php"
+    },
+    {
+        "icon": "tinohelp.png",
+        "group_id": "tinohost",
+        "order": 2,
+        "name": "Tino Documents",
+        "type": "link",
+        "target": "_blank",
+        "id": "tinohelp",
+        "uri": "https://help.tino.org"
+    },
+    {
+        "icon": "mytino.png",
+        "group_id": "tinohost",
+        "order": 1,
+        "name": "My Tino",
+        "type": "link",
+        "target": "_blank",
+        "id": "mytino",
+        "uri": "https://my.tino.org"
+    },
+    {
+        "icon": "mytino.png",
+        "group_id": "tinohost",
+        "order": 1,
+        "name": "TinoHost.com",
+        "type": "link",
+        "target": "_blank",
+        "id": "TinoHost",
+        "uri": "https://TinoHost.com"
+    }
+]

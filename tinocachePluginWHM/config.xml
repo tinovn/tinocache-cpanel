@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu_items>
+    <item>
+        <class>Index</class>
+        <name>Settings</name>
+    </item>
+    <item>
+        <class>Users</class>
+        <name>Users</name>
+    </item>
+    <item>
+        <class>Logs</class>
+        <name>Logs</name>
+    </item>
+</menu_items>
