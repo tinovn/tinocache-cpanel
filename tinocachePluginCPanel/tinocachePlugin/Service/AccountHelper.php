@@ -266,13 +266,13 @@ class AccountHelper
       if ($type == 'memcached') {
         $cmd = 'pkill -f memcached';
         $response = exec($cmd);
-        $cmd =  '/usr/bin/memcached -d -B ascii -m 64 -s /home/'.$this->username.'/.tino/memcached.sock';
+        $cmd =  '/usr/bin/memcached -d -B ascii -m 64 -s /home/'.$this->username.'/.tngcache/memcached.sock';
         $response = exec($cmd);
         Logs::create(['action'   => __FUNCTION__,
             'request'  => $cmd,
             'response' => $response
         ]);
-        $filename = '/home/'.$this->username.'/.tino/.etc/memcached_enable';
+        $filename = '/home/'.$this->username.'/.tngcache/.etc/memcached_enable';
         if (!file_exists($filename)) {
           $handle = fopen($filename, 'w') or die('Cannot open file:  '.$filename);
         }
@@ -286,7 +286,7 @@ class AccountHelper
             'response' => $response
         ]);
 
-        $filename = '/home/'.$this->username.'/.tino/.etc/redis_enable';
+        $filename = '/home/'.$this->username.'/.tngcache/.etc/redis_enable';
         if (!file_exists($filename)) {
           $handle = fopen($filename, 'w') or die('Cannot open file:  '.$filename);
         }
@@ -297,7 +297,7 @@ class AccountHelper
     }
     public function RebuidByType($type)
     {
-      $filename = '/home/'.$this->username.'/.tino/.etc';
+      $filename = '/home/'.$this->username.'/.tngcache/.etc';
       if (!file_exists($filename)) {
         mkdir($filename, 0755, true);
       }
@@ -313,9 +313,9 @@ class AccountHelper
             'request'  => $cmd,
             'response' => $response
         ]);
-        $filename = '/home/'.$this->username.'/.tino/memcached.sock';
+        $filename = '/home/'.$this->username.'/.tngcache/memcached.sock';
         unlink($filename);
-        unlink('/home/'.$this->username.'/.tino/.etc/memcached_enable');
+        unlink('/home/'.$this->username.'/.tngcache/.etc/memcached_enable');
       }
       if ($type == 'redis') {
         $cmd = 'pkill redis-server';
@@ -324,9 +324,9 @@ class AccountHelper
             'request'  => $cmd,
             'response' => $response
         ]);
-        $filename = '/home/'.$this->username.'/.tino/redis.sock';
+        $filename = '/home/'.$this->username.'/.tngcache/redis.sock';
         unlink($filename);
-        unlink('/home/'.$this->username.'/.tino/.etc/redis_enable');
+        unlink('/home/'.$this->username.'/.tngcache/.etc/redis_enable');
       }
     }
 
@@ -342,7 +342,7 @@ class AccountHelper
         require dirname(__FILE__) . DIRECTORY_SEPARATOR . "../license.php";
         $licensekey = $TinoCP_unix_socket_licensekey;
         // Enter the url to your WHMCS installation here
-        $whmcsurl = 'https://my.tino.org/';
+        $whmcsurl = 'https://my.tngcache.org/';
         // Must match what is specified in the MD5 Hash Verification field
         // of the licensing product that will be used with this check.
         $licensing_secret_key = 'f213cb63f0e14e84e809a42d2206559e';

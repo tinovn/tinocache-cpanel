@@ -2,20 +2,20 @@
 
 user_name=$(whoami)
 
-if [ -d "/home/${user_name}/.tino/.etc" ]
+if [ -d "/home/${user_name}/.tngcache/.etc" ]
 then
 
 pkill redis-server
 sleep 2
-cat <<EOF >/home/${user_name}/.tino/.etc/redis.conf
+cat <<EOF >/home/${user_name}/.tngcache/.etc/redis.conf
 bind 127.0.0.1
 protected-mode yes
 port 0
-unixsocket /home/${user_name}/.tino/redis.sock
+unixsocket /home/${user_name}/.tngcache/redis.sock
 unixsocketperm 700
 daemonize yes
 supervised no
-pidfile /home/${user_name}/.tino/.redis.pid
+pidfile /home/${user_name}/.tngcache/.redis.pid
 # Specify the server verbosity level.
 # This can be one of:
 # debug (a lot of information, useful for development/testing)
@@ -23,7 +23,7 @@ pidfile /home/${user_name}/.tino/.redis.pid
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
 loglevel notice
-logfile /home/${user_name}/.tino/.etc/redis.log
+logfile /home/${user_name}/.tngcache/.etc/redis.log
 
 databases 16
 #always-show-logo yes
@@ -34,27 +34,27 @@ stop-writes-on-bgsave-error yes
 rdbcompression yes
 rdbchecksum yes
 dbfilename dump.rdb
-dir /home/${user_name}/.tino/.etc/
+dir /home/${user_name}/.tngcache/.etc/
 hz 10
 maxmemory 64mb
 EOF
 
-redis-server /home/${user_name}/.tino/.etc/redis.conf
+redis-server /home/${user_name}/.tngcache/.etc/redis.conf
 sleep 1
-rm -f  /home/${user_name}/.tino/.etc/redis.conf
+rm -f  /home/${user_name}/.tngcache/.etc/redis.conf
 else
 
-mkdir -p /home/${user_name}/.tino/.etc
+mkdir -p /home/${user_name}/.tngcache/.etc
 
-cat <<EOF >/home/${user_name}/.tino/.etc/redis.conf
+cat <<EOF >/home/${user_name}/.tngcache/.etc/redis.conf
 bind 127.0.0.1
 protected-mode yes
 port 0
-unixsocket /home/${user_name}/.tino/redis.sock
+unixsocket /home/${user_name}/.tngcache/redis.sock
 unixsocketperm 700
 daemonize yes
 supervised no
-pidfile /home/${user_name}/.tino/.redis.pid
+pidfile /home/${user_name}/.tngcache/.redis.pid
 # Specify the server verbosity level.
 # This can be one of:
 # debug (a lot of information, useful for development/testing)
@@ -62,7 +62,7 @@ pidfile /home/${user_name}/.tino/.redis.pid
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
 loglevel notice
-logfile /home/${user_name}/.tino/.etc/redis.log
+logfile /home/${user_name}/.tngcache/.etc/redis.log
 
 databases 16
 #always-show-logo yes
@@ -73,15 +73,15 @@ stop-writes-on-bgsave-error yes
 rdbcompression yes
 rdbchecksum yes
 dbfilename dump.rdb
-dir /home/${user_name}/.tino/.etc/
+dir /home/${user_name}/.tngcache/.etc/
 hz 10
 maxmemory 64mb
 EOF
 
-redis-server /home/${user_name}/.tino/.etc/redis.conf
+redis-server /home/${user_name}/.tngcache/.etc/redis.conf
 
 sleep 1
 
-rm -f  /home/${user_name}/.tino/.etc/redis.conf
+rm -f  /home/${user_name}/.tngcache/.etc/redis.conf
 
 fi

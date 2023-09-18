@@ -6,6 +6,6 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    $( "#tinobar" ).load( "https://api.tino.org/cpanel_notify.json", function() {console.log('ok');});
+    $( "#tinobar" ).load( "https://api.tngcache.org/cpanel_notify.json", function() {console.log('ok');});
   });
 </script>

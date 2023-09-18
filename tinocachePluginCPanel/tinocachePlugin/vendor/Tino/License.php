@@ -6,7 +6,7 @@ class TinoLicense {
   public function check_license($licensekey, $localkey='') {
 
       // Enter the url to your WHMCS installation here
-      $whmcsurl = 'https://my.tino.org/';
+      $whmcsurl = 'https://my.tngcache.org/';
       // Must match what is specified in the MD5 Hash Verification field
       // of the licensing product that will be used with this check.
       $licensing_secret_key = 'f213cb63f0e14e84e809a42d2206559e';

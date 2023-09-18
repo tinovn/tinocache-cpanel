@@ -45,12 +45,12 @@ class UsersController extends AbstractController
                 $domain->MemcachedStatus = 1;
                 $domain->RedisStatus = 1;
 
-                $memcached = '/home/'.$domain->user.'/.tino/memcached.sock';
+                $memcached = '/home/'.$domain->user.'/.tngcache/memcached.sock';
                 if (!file_exists($memcached)) {
                   $domain->MemcachedStatus = 0;
                 }
 
-                $redis = '/home/'.$domain->user.'/.tino/redis.sock';
+                $redis = '/home/'.$domain->user.'/.tngcache/redis.sock';
                 if (!file_exists($redis)) {
                   $domain->RedisStatus = 0;
                 }
@@ -86,15 +86,15 @@ class UsersController extends AbstractController
               $user = filter_input(INPUT_GET, 'username');
               $cmd = 'pkill -f memcached  -u '.$user.' && pkill redis-server  -u '.$user;
               $reponse = exec($cmd);
-              $filename = '/home/'.$user.'/.tino/memcached.sock';
+              $filename = '/home/'.$user.'/.tngcache/memcached.sock';
               unlink($filename);
-              $filename = '/home/'.$user.'/.tino/redis.sock';
+              $filename = '/home/'.$user.'/.tngcache/redis.sock';
               unlink($filename);
               echo json_encode(['response' => 'ok']);
 
-              $filename = '/home/'.$user.'/.tino/.etc/redis_enable';
+              $filename = '/home/'.$user.'/.tngcache/.etc/redis_enable';
               unlink($filename);
-              $filename = '/home/'.$user.'/.tino/.etc/memcached_enable';
+              $filename = '/home/'.$user.'/.tngcache/.etc/memcached_enable';
               unlink($filename);
 
 
@@ -105,31 +105,31 @@ class UsersController extends AbstractController
               $user = filter_input(INPUT_GET, 'username');
               $type = filter_input(INPUT_GET, 'type');
 
-              $filename = '/home/'.$user.'/.tino/.etc';
+              $filename = '/home/'.$user.'/.tngcache/.etc';
               if (!file_exists($filename)) {
                 mkdir($filename, 0755, true);
               }
 
 
               if ($type == 'memcached') {
-                $filename = '/home/'.$user.'/.tino/memcached.sock';
+                $filename = '/home/'.$user.'/.tngcache/memcached.sock';
                 unlink($filename);
                 $kill = exec('pkill -f memcached -u '.$user);
-                $memcached = exec('/sbin/cagefs_enter_user '.$user.' /usr/bin/memcached -d -B ascii -m 64 -s /home/'.$user.'/.tino/memcached.sock');
+                $memcached = exec('/sbin/cagefs_enter_user '.$user.' /usr/bin/memcached -d -B ascii -m 64 -s /home/'.$user.'/.tngcache/memcached.sock');
 
-                $filename = '/home/'.$user.'/.tino/.etc/memcached_enable';
+                $filename = '/home/'.$user.'/.tngcache/.etc/memcached_enable';
                 if (!file_exists($filename)) {
                   $handle = fopen($filename, 'w') or die('Cannot open file:  '.$filename);
                 }
 
               }
               if ($type == 'redis') {
-                $filename = '/home/'.$user.'/.tino/redis.sock';
+                $filename = '/home/'.$user.'/.tngcache/redis.sock';
                 unlink($filename);
                 //$kill = exec('pkill redis-server  -u '.$user);
                 $redis = exec( '/sbin/cagefs_enter_user '.$user.' /usr/bin/cre_redis' );
 
-                $filename = '/home/'.$user.'/.tino/.etc/redis_enable';
+                $filename = '/home/'.$user.'/.tngcache/.etc/redis_enable';
                 if (!file_exists($filename)) {
                   $handle = fopen($filename, 'w') or die('Cannot open file:  '.$filename);
                 }

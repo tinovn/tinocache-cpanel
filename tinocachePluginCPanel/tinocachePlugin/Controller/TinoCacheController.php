@@ -62,7 +62,7 @@ class TinoCacheController extends Controller
         {
             case 'activate':
 
-            $filename = '/home/'.$this->username.'/.tino/.etc';
+            $filename = '/home/'.$this->username.'/.tngcache/.etc';
 
             if (!file_exists($filename)) {
               mkdir($filename, 0755, true);

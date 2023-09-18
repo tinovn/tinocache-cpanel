@@ -1,9 +1,9 @@
 #!/bin/bash
 for i in `cat /etc/domainusers | cut -d ":" -f1`
 do
-    if [ -e "/home/${i}/.tino/.etc/mem_enable" ]
+    if [ -e "/home/${i}/.tngcache/.etc/mem_enable" ]
     then
-        /sbin/cagefs_enter_user $i /usr/bin/memcached -d -B ascii -m 64 -s /home/${i}/.tinocacheplugin/memcached.sock
+        /sbin/cagefs_enter_user $i /usr/bin/memcached -d -B ascii -m 64 -s /home/${i}/.tngcachecacheplugin/memcached.sock
     else
        echo "User $i not enable memcached"
     fi

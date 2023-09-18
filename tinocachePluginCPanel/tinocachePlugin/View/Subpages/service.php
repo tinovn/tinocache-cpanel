@@ -45,7 +45,7 @@
           <tr>
             <td>Memcached</td>
             <?php if ($this->memcachedStatus == 'Enable'): ?>
-              <td>/home/<?php echo $this->username; ?>/.tino/memcached.sock</td>
+              <td>/home/<?php echo $this->username; ?>/.tngcache/memcached.sock</td>
               <?php else: ?>
                 <td>N/A</td>
             <?php endif; ?>
@@ -76,7 +76,7 @@
           <tr>
             <td>Redis</td>
             <?php if ($this->redisStatus == 'Enable'): ?>
-              <td>/home/<?php echo $this->username; ?>/.tino/redis.sock</td>
+              <td>/home/<?php echo $this->username; ?>/.tngcache/redis.sock</td>
               <?php else: ?>
                 <td>N/A</td>
             <?php endif; ?>

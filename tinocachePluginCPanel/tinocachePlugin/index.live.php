@@ -25,7 +25,7 @@ try
         die;
     }
 
-    echo $cpanel->header('Tino Cache');
+    echo $cpanel->header('Cache');
     $controller->view('tinocachePlugin');
     echo $cpanel->footer('tinocachePlugin');
 }
